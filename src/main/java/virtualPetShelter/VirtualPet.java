@@ -13,10 +13,10 @@ public class VirtualPet {
 	public VirtualPet(String name, String description) {
 		this.name = name;
 		this.description = description;
-		this.hatred = ThreadLocalRandom.current().nextInt(1, 11);
-		this.unrelentingLove = ThreadLocalRandom.current().nextInt(1, 11);
-		this.catness = ThreadLocalRandom.current().nextInt(1, 11);
-		this.dogness = ThreadLocalRandom.current().nextInt(1, 11);
+		this.hatred = ThreadLocalRandom.current().nextInt(5, 9);
+		this.unrelentingLove = ThreadLocalRandom.current().nextInt(5, 9);
+		this.catness = ThreadLocalRandom.current().nextInt(5, 9);
+		this.dogness = ThreadLocalRandom.current().nextInt(5, 9);
 	}
 
 	public VirtualPet(String name, String description, int hatred, int unrelentingLove, int catness, int dogness) {
@@ -29,13 +29,13 @@ public class VirtualPet {
 	}
 
 	public void pokeCreature() {
-		hatred++;
-		unrelentingLove--;
+		hatred = hatred + 3;
+		unrelentingLove = unrelentingLove - 3;
 	}
 
 	public void hugCreature() {
-		hatred--;
-		unrelentingLove++;
+		hatred = hatred - 3;
+		unrelentingLove = unrelentingLove + 3;
 	}
 
 	public void catCreature() {
@@ -50,7 +50,7 @@ public class VirtualPet {
 
 	public void tickCreature() {
 		hatred++;
-		dogness--;
+		unrelentingLove--;
 	}
 
 	public String getName() {
@@ -79,7 +79,7 @@ public class VirtualPet {
 
 	@Override
 	public String toString() {
-		return String.format("%-17s%-25s%-17s%-17s%-17s%-17s", name, description, hatred, unrelentingLove, catness,
+		return String.format("%-17s%-35s%-17s%-17s%-17s%-17s", name, description, hatred, unrelentingLove, catness,
 				dogness);
 	}
 

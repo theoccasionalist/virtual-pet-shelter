@@ -23,8 +23,8 @@ public class VirtualPetTest {
 		underTest.pokeCreature();
 		int check = underTest.getHatred();
 		int check2 = underTest.getUnrelentingLove();
-		assertEquals(2, check);
-		assertEquals(0, check2);
+		assertEquals(4, check);
+		assertEquals(-2, check2);
 	}
 
 	@Test
@@ -33,8 +33,8 @@ public class VirtualPetTest {
 		underTest.hugCreature();
 		int check = underTest.getUnrelentingLove();
 		int check2 = underTest.getHatred();
-		assertEquals(2, check);
-		assertEquals(0, check2);
+		assertEquals(4, check);
+		assertEquals(-2, check2);
 	}
 
 	@Test
@@ -62,7 +62,7 @@ public class VirtualPetTest {
 		VirtualPet underTest = new VirtualPet("", "", 1, 1, 1, 1);
 		underTest.tickCreature();
 		int check = underTest.getHatred();
-		int check2 = underTest.getDogness();
+		int check2 = underTest.getUnrelentingLove();
 		assertEquals(2, check);
 		assertEquals(0, check2);
 	}

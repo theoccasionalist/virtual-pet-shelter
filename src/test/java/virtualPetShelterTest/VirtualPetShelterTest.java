@@ -49,10 +49,10 @@ public class VirtualPetShelterTest {
 		int check2 = testShelter.getName("Phil").getHatred();
 		int check3 = testShelter.getName("Bill").getUnrelentingLove();
 		int check4 = testShelter.getName("Phil").getUnrelentingLove();
-		assertEquals(0, check);
-		assertEquals(0, check2);
-		assertEquals(2, check3);
-		assertEquals(2, check4);
+		assertEquals(-2, check);
+		assertEquals(-2, check2);
+		assertEquals(4, check3);
+		assertEquals(4, check4);
 	}
 
 	@Test
@@ -67,10 +67,10 @@ public class VirtualPetShelterTest {
 		int check2 = testShelter.getName("Phil").getHatred();
 		int check3 = testShelter.getName("Bill").getUnrelentingLove();
 		int check4 = testShelter.getName("Phil").getUnrelentingLove();
-		assertEquals(2, check);
-		assertEquals(2, check2);
-		assertEquals(0, check3);
-		assertEquals(0, check4);
+		assertEquals(4, check);
+		assertEquals(4, check2);
+		assertEquals(-2, check3);
+		assertEquals(-2, check4);
 	}
 
 	@Test
@@ -83,8 +83,12 @@ public class VirtualPetShelterTest {
 		testShelter.catAllCreatures();
 		int check = testShelter.getName("Bill").getCatness();
 		int check2 = testShelter.getName("Phil").getCatness();
+		int check3 = testShelter.getName("Bill").getDogness();
+		int check4 = testShelter.getName("Phil").getDogness();
 		assertEquals(2, check);
 		assertEquals(2, check2);
+		assertEquals(0, check3);
+		assertEquals(0, check4);
 	}
 
 	@Test
@@ -95,10 +99,14 @@ public class VirtualPetShelterTest {
 		testShelter.addCreature(testAnimal);
 		testShelter.addCreature(testAnimal2);
 		testShelter.dogAllCreatures();
-		int check = testShelter.getName("Bill").getDogness();
-		int check2 = testShelter.getName("Phil").getDogness();
-		assertEquals(2, check);
-		assertEquals(2, check2);
+		int check = testShelter.getName("Bill").getCatness();
+		int check2 = testShelter.getName("Phil").getCatness();
+		int check3 = testShelter.getName("Bill").getDogness();
+		int check4 = testShelter.getName("Phil").getDogness();
+		assertEquals(0, check);
+		assertEquals(0, check2);
+		assertEquals(2, check3);
+		assertEquals(2, check4);
 	}
 
 	@Test
@@ -109,19 +117,25 @@ public class VirtualPetShelterTest {
 		testShelter.play("Bill");
 		int check = testShelter.getName("Bill").getHatred();
 		int check2 = testShelter.getName("Bill").getUnrelentingLove();
-		assertEquals(0, check);
-		assertEquals(2, check2);
+		assertEquals(-2, check);
+		assertEquals(4, check2);
 	}
 
 	@Test
 	public void shouldTickAllAnimals() {
 		VirtualPetShelter testShelter = new VirtualPetShelter();
 		VirtualPet testAnimal = new VirtualPet("Bill", "", 1, 1, 1, 1);
+		VirtualPet testAnimal2 = new VirtualPet("Phil", "", 1, 1, 1, 1);
 		testShelter.addCreature(testAnimal);
+		testShelter.addCreature(testAnimal2);
 		testShelter.tickAllCreatures();
 		int check = testShelter.getName("Bill").getHatred();
-		int check2 = testShelter.getName("Bill").getDogness();
+		int check2 = testShelter.getName("Phil").getHatred();
+		int check3 = testShelter.getName("Bill").getUnrelentingLove();
+		int check4 = testShelter.getName("Phil").getUnrelentingLove();
 		assertEquals(2, check);
-		assertEquals(0, check2);
+		assertEquals(2, check2);
+		assertEquals(0, check3);
+		assertEquals(0, check4);
 	}
 }
