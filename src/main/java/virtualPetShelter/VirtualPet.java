@@ -1,5 +1,7 @@
 package virtualPetShelter;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class VirtualPet {
 	private String name;
 	private String description;
@@ -11,10 +13,10 @@ public class VirtualPet {
 	public VirtualPet(String name, String description) {
 		this.name = name;
 		this.description = description;
-		this.hatred = 15;
-		this.unrelentingLove = 13;
-		this.catness = 2;
-		this.dogness = 2;
+		this.hatred = ThreadLocalRandom.current().nextInt(1, 11);
+		this.unrelentingLove = ThreadLocalRandom.current().nextInt(1, 11);
+		this.catness = ThreadLocalRandom.current().nextInt(1, 11);
+		this.dogness = ThreadLocalRandom.current().nextInt(1, 11);
 	}
 
 	public VirtualPet(String name, String description, int hatred, int unrelentingLove, int catness, int dogness) {

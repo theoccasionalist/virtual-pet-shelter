@@ -9,7 +9,7 @@ import virtualPetShelter.VirtualPet;
 public class VirtualPetTest {
 
 	@Test
-	public void shouldGetNameDefaultCreature() {
+	public void shouldGetNameCreature() {
 		VirtualPet underTest = new VirtualPet("Dog", "Not Cat");
 		String check = underTest.getName();
 		String check2 = underTest.getDescription();
@@ -18,7 +18,7 @@ public class VirtualPetTest {
 	}
 
 	@Test
-	public void shouldPokeNonDefaultCreature() {
+	public void shouldPokeCreature() {
 		VirtualPet underTest = new VirtualPet("", "", 1, 1, 1, 1);
 		underTest.pokeCreature();
 		int check = underTest.getHatred();
@@ -28,7 +28,7 @@ public class VirtualPetTest {
 	}
 
 	@Test
-	public void shouldHugNonDefaultCreature() {
+	public void shouldHugCreature() {
 		VirtualPet underTest = new VirtualPet("", "", 1, 1, 1, 1);
 		underTest.hugCreature();
 		int check = underTest.getUnrelentingLove();
@@ -38,17 +38,17 @@ public class VirtualPetTest {
 	}
 
 	@Test
-	public void shouldCatDefaultCreature() {
-		VirtualPet underTest = new VirtualPet("", "");
+	public void shouldCatCreature() {
+		VirtualPet underTest = new VirtualPet("", "", 1, 1, 1, 1);
 		underTest.catCreature();
 		int check = underTest.getCatness();
 		int check2 = underTest.getDogness();
-		assertEquals(3, check);
-		assertEquals(1, check2);
+		assertEquals(2, check);
+		assertEquals(0, check2);
 	}
 
 	@Test
-	public void shouldDogNonDefaultCreature() {
+	public void shouldDogCreature() {
 		VirtualPet underTest = new VirtualPet("", "", 1, 1, 1, 1);
 		underTest.dogCreature();
 		int check = underTest.getDogness();
@@ -58,12 +58,12 @@ public class VirtualPetTest {
 	}
 
 	@Test
-	public void shouldTickDefaultCreature() {
-		VirtualPet underTest = new VirtualPet("", "");
+	public void shouldTickCreature() {
+		VirtualPet underTest = new VirtualPet("", "", 1, 1, 1, 1);
 		underTest.tickCreature();
 		int check = underTest.getHatred();
 		int check2 = underTest.getDogness();
-		assertEquals(16, check);
-		assertEquals(1, check2);
+		assertEquals(2, check);
+		assertEquals(0, check2);
 	}
 }
