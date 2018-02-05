@@ -101,7 +101,8 @@ public class VirtualPetShelterApp {
 				String name = input.nextLine();
 				VirtualPet creatureAdopted = shelter.getName(name);
 				shelter.adoptCreature(creatureAdopted);
-				System.out.println(name + " looks forward to life on the outside.");
+				System.out.println(name + " looks forward to life on the outside.\n(Press any key)");
+				input.nextLine();
 				continue;
 			} else if (option.equals("8") || option.equalsIgnoreCase("leave")) {
 				System.out.println("You leave this place for good.");

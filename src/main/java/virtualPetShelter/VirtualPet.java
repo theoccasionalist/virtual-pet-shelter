@@ -28,12 +28,12 @@ public class VirtualPet {
 		this.dogness = dogness;
 	}
 
-	public void pokeCreature() {
+	public void pokeCreature() { // meant to replace feeding pet
 		hatred = hatred + 3;
 		unrelentingLove = unrelentingLove - 3;
 	}
 
-	public void hugCreature() {
+	public void hugCreature() { // meant to replace watering pet
 		hatred = hatred - 3;
 		unrelentingLove = unrelentingLove + 3;
 	}
