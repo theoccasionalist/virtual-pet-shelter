@@ -1,5 +1,6 @@
 package virtualPetShelter;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class VirtualPetShelterApp {
@@ -36,6 +37,46 @@ public class VirtualPetShelterApp {
 		input.nextLine();
 
 		while (true) {
+
+			Iterator<VirtualPet> toRemove = shelter.petObjectValues().iterator();
+			while (toRemove.hasNext()) {
+				VirtualPet value = toRemove.next();
+				if (value.getCatness() >= 12) {
+					System.out.println(
+							"Update:\n" + value.getName() + " is full-on cat and has been moved to the cat playpen.");
+					toRemove.remove();
+				} else if (value.getDogness() >= 12) {
+					System.out.println(
+							"Update:\n" + value.getName() + " is full-on dog and has been moved to the dog playpen.");
+					toRemove.remove();
+				} else if (value.getDogness() <= 0) {
+					System.out.println("Update:\n" + value.getName()
+							+ " has no dogness remaining and has been moved to the \'mostly cat\' playpen.");
+					toRemove.remove();
+				} else if (value.getCatness() <= 0) {
+					System.out.println("Update:\n" + value.getName()
+							+ " has no catness remaining and has been moved to the \'mostly dog\' playpen.");
+					toRemove.remove();
+				} else if (value.getHatred() >= 15) {
+					System.out.println(
+							"Update:\n" + value.getName() + " has mutinied.  Its rebellion was quelled accordingly.");
+					toRemove.remove();
+				} else if (value.getHatred() <= 0) {
+					System.out.println("Update:\n" + value.getName()
+							+ " feels no hatred.  It has moved to a commune in the country.");
+					toRemove.remove();
+					;
+				} else if (value.getUnrelentingLove() >= 15) {
+					System.out.println("Update:\n" + value.getName()
+							+ " has felt true bliss and ascended into the fifth-dimension.");
+					toRemove.remove();
+				} else if (value.getUnrelentingLove() <= 0) {
+					System.out.println("Update:\n" + value.getName()
+							+ " feels no love and is now soul journeying in the Nevada desert.");
+					toRemove.remove();
+				}
+			}
+
 			shelter.tickAllCreatures();
 			System.out.println("\nList of creatures in the playpen and their attributes:\n");
 			String format = String.format("%-17s%-35s%-17s%-17s%-17s%-17s", "Name", "Description", "Hatred", "Love",
