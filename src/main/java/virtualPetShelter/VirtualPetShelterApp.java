@@ -23,7 +23,7 @@ public class VirtualPetShelterApp {
 
 		System.out.println("Welcome to Catty Cat's Dog House.");
 		System.out.println(
-				"Here at Catty Cat's Dog House we'll turn the cat or dog of your dreams into the dog or cat or your dreams!");
+				"Here at Catty Cat's Dog House we'll turn the cat or dog of your dreams into the dog or cat of your dreams!");
 		System.out.println(
 				"Through use of our patented \'Cog Powder\' we'll turn little Fido into princess Shiba!  Come to our playpens and see it in action!\n(Press any to enter)");
 		input.nextLine();
@@ -33,7 +33,7 @@ public class VirtualPetShelterApp {
 				"Should you find that special someone in our playpens, that special someone is all yours! For Free!");
 		System.out.println(
 				"And should you want to transmorph that special someone at home, just leave them with us. We'll have your cat barking in no time!");
-		System.out.println("I'll leave you and little ones alone for now. Enjoy!\n(Press any key to continue)");
+		System.out.println("I'll leave you and the little ones alone for now. Enjoy!\n(Press any key to continue)");
 		input.nextLine();
 
 		while (true) {
